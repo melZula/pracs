@@ -1,0 +1,31 @@
+In file included from /home/zula/Documents/pracs/3/proc.cpp:4:0:
+/home/zula/Documents/pracs/3/proc.h:6:3: error: extra qualification ‘IMG::’ on member ‘IMG’ [-fpermissive]
+   IMG::IMG ();
+   ^
+/home/zula/Documents/pracs/3/proc.h:8:3: error: extra qualification ‘IMG::’ on member ‘IMG’ [-fpermissive]
+   IMG::IMG(const IMG a);
+   ^
+/home/zula/Documents/pracs/3/proc.h:8:23: error: invalid constructor; you probably meant ‘IMG (const IMG&)’
+   IMG::IMG(const IMG a);
+                       ^
+/home/zula/Documents/pracs/3/proc.cpp: In constructor ‘IMG::IMG()’:
+/home/zula/Documents/pracs/3/proc.cpp:7:3: error: ‘cout’ was not declared in this scope
+   cout << "Enter real part -->";
+   ^
+/home/zula/Documents/pracs/3/proc.cpp:7:3: note: suggested alternative:
+In file included from /home/zula/Documents/pracs/3/proc.cpp:3:0:
+/usr/include/c++/4.8/iostream:61:18: note:   ‘std::cout’
+   extern ostream cout;  /// Linked to standard output
+                  ^
+/home/zula/Documents/pracs/3/proc.cpp:8:3: error: ‘cin’ was not declared in this scope
+   cin >> real;
+   ^
+/home/zula/Documents/pracs/3/proc.cpp:8:3: note: suggested alternative:
+In file included from /home/zula/Documents/pracs/3/proc.cpp:3:0:
+/usr/include/c++/4.8/iostream:60:18: note:   ‘std::cin’
+   extern istream cin;  /// Linked to standard input
+                  ^
+/home/zula/Documents/pracs/3/proc.cpp: At global scope:
+/home/zula/Documents/pracs/3/proc.cpp:16:22: error: definition of implicitly-declared ‘IMG::IMG(const IMG&)’
+ IMG::IMG(const IMG& a) {
+                      ^
