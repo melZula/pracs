@@ -1,0 +1,7 @@
+C:\Users\zula0\Documents\GitHub\pracs\8\test.cpp: In function 'int main()':
+C:\Users\zula0\Documents\GitHub\pracs\8\test.cpp:18:25: error: 'ostream_iterator' was not declared in this scope
+  copy(v.begin(),v.end(),ostream_iterator<int>(cout," ")); //выводим значения вектора на экран
+                         ^~~~~~~~~~~~~~~~
+C:\Users\zula0\Documents\GitHub\pracs\8\test.cpp:18:42: error: expected primary-expression before 'int'
+  copy(v.begin(),v.end(),ostream_iterator<int>(cout," ")); //выводим значения вектора на экран
+                                          ^~~
