@@ -1,22 +1,44 @@
 #include <iostream>
-#include <vector> //используем вектор
-#include <algorithm> //используем алгоритм find_if
+#include <vector>
+#include <list>
+#include <iterator>
+#include <utility>
+#include <algorithm>
+
 
 using namespace std;
 
-int pred(int i) //эта функция может иметь любое имя, представляет из себя так называемый предикат
+template<class IT, class KEY>
+bool binary_search(IT first, IT last, KEY key)
 {
-	return i>10; //Это наше условие, надо найти элемент, больше чем 10
+  // element not found
+  if (first == last)
+  return false;
+  // check for the desired element
+  IT half = first;
+  advance(half, distance(first, last) / 2);
+  if (key == *half)
+  return true;
+  // recursive call
+  if (key < *half)
+  return binary_search(first, half, key);
+  return binary_search(++half, last, key);
+};
+
+template <typename iterator, typename Container, typename T>
+void move_if(iterator a, iterator b, Container &o, T pred)
+{
+	for (auto i = a; i != b; i++)
+	{
+		if (pred(*i))
+		o.insert(o.begin(), *i);
+	}
 }
 
-int main(void)
+int main()
 {
-	int A[]={1,2,3,40,3,200,1}; //иницализируем массив
-	vector<int> v(A,A+7); //копируем массив в вектор
-	vector<int>::iterator it; //объявляем итератор
+	vector<int>v{1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+	vector<int>v2;
 
-
-	it=find_if(v.begin(),v.end(),&pred); //присваиваем в итератор it другой итератор, который возвращает нам алгоритм find_if
-	if (it==v.end()) cout<<"Элементов больше указанного условия в контейнере нет"<<endl<<endl; //если во всем векторе не встретилось элемента, удовлетворяющего условия предиката выводим, что нет таких
-	else cout<<"Первый элемент, который больше указанного условия: "<<*it<<endl<<endl;//иначе выводим первый встречный
+	move_if(v.begin(), v.end(), v2, [](int i) { return !(i > 5); });
 }
