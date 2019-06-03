@@ -22,6 +22,7 @@ public:
   {
     cout << "Copy success " << endl;
   };
+
   BST& operator=(const BST &){
     /// ----
   };
@@ -37,17 +38,17 @@ public:
   }*/
 };
 
-template<class InputIt>
+template<class InputIt> // replase memory
 void assign(InputIt first, InputIt last){
   // ???
 };
 
 iterator<T, Compare> begin(){
-  return &mem[0];
+  return iterator<T, Compare>(&mem);
 };
-
+/*
 const_iterator cbegin() const{
-  return &mem[0];
+  return iterator<T, Compare>(mem.get());
 };
 iterator<T, Compare> end(){
   return &mem[size];
@@ -55,8 +56,8 @@ iterator<T, Compare> end(){
 
 const_iterator cend() const{
   ///
-};
-
+};*/
+/*
 iterator<T, Compare> insert(const T &value){ // use iterators
   int i = 0;
   Compare which;
@@ -82,7 +83,7 @@ iterator<T, Compare> insert(const T &value){ // use iterators
   }
   mem[i] = value;
   cout << "Inserted" << endl;
-  return &mem[i];
+  return begin();
 };
 /*
 iterator remove(const T &value);
@@ -97,6 +98,7 @@ int main(int argc, char const *argv[]) {
   //
   cout << "size = " << tree.size << endl;
   cout << "SIZE " << (sizeof(tree.mem)/sizeof(*(tree.mem))) << endl;
+  /*
   tree.insert(1);
   tree.show();
   tree.insert(-4);
@@ -105,7 +107,8 @@ int main(int argc, char const *argv[]) {
   tree.show();
   tree.insert(7);
   tree.show();
-
+  */
+  tree.begin();
   free(tree.mem);
   return 0;
 }
