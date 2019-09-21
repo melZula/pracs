@@ -234,7 +234,7 @@ int main(int argc, char *argv[]){
       char c[1000];
 
       if (iter % dump_freq == 0) {
-        char tempFile[20];
+        char tempFile[20] = "";
         strcat(tempFile, outputFile);
         sprintf(c, "%d", iter);
         strcat(tempFile, "out");
